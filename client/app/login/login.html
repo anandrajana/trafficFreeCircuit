@@ -1,0 +1,56 @@
+
+<header class="hero-unit" id="banner">
+    <div class="container">
+        <h1>Welcome</h1>
+        <p class="lead">Lets free your circuit in Bangalore</p>
+        <img src="assets/images/yeoman.png" alt="I'm Yeoman">
+    </div>
+</header>
+<div class="container">
+    
+           <div class="bs-callout bs-callout-info"> Please Sign in to access your free circuit..</div><br/>
+
+     <md-fab-toolbar md-open="false" count="0"
+                  md-direction="left">
+        <md-fab-trigger class="align-with-text">
+          <md-button aria-label="menu" class="md-fab myColor">
+            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+          </md-button>
+        </md-fab-trigger>
+        <md-toolbar>
+          <md-fab-actions class="md-toolbar-tools">
+            <md-button aria-label="comment">
+              Register
+            </md-button>
+            <md-button aria-label="label" >
+              Contact
+            </md-button>
+           
+          </md-fab-actions>
+        </md-toolbar>
+  </md-fab-toolbar>
+  <div class="col-md-8"> 
+  <form name="userForm">
+  <md-input-container class="md-block" flex-gt-sm >
+        <label>Email</label>
+        <input name="email" ng-model="vm.email" type="email" required>
+        <div ng-messages="userForm.email.$error" ng-show="userForm.email.$dirty">
+          <div ng-message="required">This is required!</div>
+         
+        </div>
+      </md-input-container>
+      <md-input-container class="md-block" flex-gt-sm>
+        <label>Password</label>
+        <input name="pwd" ng-model="vm.pwd" type="password" required>
+        <div ng-messages="userForm.pwd.$error" ng-show="userForm.pwd.$dirty">
+          <div ng-message="required">This is required!</div>
+         
+        </div>
+      </md-input-container>
+  
+        <md-button class="md-raised myColor" ng-click="vm.submitForm(userForm)">Primary</md-button>
+        </form>
+        </div><!-- end of col-md-8 -->
+</div><!-- end of container -->
+
+<footer></footer>
