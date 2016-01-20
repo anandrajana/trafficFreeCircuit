@@ -30,25 +30,25 @@
         </md-toolbar>
   </md-fab-toolbar>
   <div class="col-md-8"> 
-  <form name="userForm">
+  <form name="userForm" >
   <md-input-container class="md-block" flex-gt-sm >
         <label>Email</label>
         <input name="email" ng-model="vm.email" type="email" required>
-        <div ng-messages="userForm.email.$error" ng-show="userForm.email.$dirty">
-          <div ng-message="required">This is required!</div>
-         
+        <div ng-messages="userForm.email.$error" ng-hide="userForm.email.$valid || userForm.email.$pristine">
+          <div ng-hide="userForm.email.$dirty" ng-message="required">This is required!</div>
+          <div ng-hide="userForm.email.$valid" ng-message="invalid">This is not valid email </div>
         </div>
       </md-input-container>
       <md-input-container class="md-block" flex-gt-sm>
         <label>Password</label>
-        <input name="pwd" ng-model="vm.pwd" type="password" required>
-        <div ng-messages="userForm.pwd.$error" ng-show="userForm.pwd.$dirty">
-          <div ng-message="required">This is required!</div>
-         
+        <input name="pwd"  ng-minlength="8" ng-model="vm.pwd" type="password" required><!--password-chk -->
+        <div ng-messages="userForm.pwd.$error" ng-hide="userForm.pwd.$valid || userForm.pwd.$pristine">
+          <div ng-hide="userForm.pwd.$dirty" ng-message="required">This is required!</div>
+         <div ng-hide="userForm.pwd.$valid"ng-message="invalid">This is not valid password </div>
         </div>
       </md-input-container>
   
-        <md-button class="md-raised myColor" ng-click="vm.submitForm(userForm)">Primary</md-button>
+        <md-button ng-disabled="userForm.$invalid" ng-click="vm.submitForm(userForm)" class="md-raised myColor" >Primary</md-button>
         </form>
         </div><!-- end of col-md-8 -->
 </div><!-- end of container -->
