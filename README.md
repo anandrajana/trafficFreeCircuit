@@ -1,5 +1,12 @@
 # freecircuit
 
+Description:
+
+Prototype under development to free bangalorians from traffic jam. Trying to develop with angular-fullstack yeoman generator along with angular material.
+
+**Under Development**
+
+
 This project was generated with the [Angular Full-Stack Generator](https://github.com/DaftMonk/generator-angular-fullstack) version 3.3.0-beta.0.
 
 ## Getting Started
