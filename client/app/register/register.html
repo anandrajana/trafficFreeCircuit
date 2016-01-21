@@ -1,0 +1,85 @@
+
+<header id="banner">
+    
+</header>
+<div class="container">
+    
+           <div class="bs-callout bs-callout-info"> Please register a free account for free circuit..</div><br/>
+<!-- menubar code -->
+
+
+<!-- <md-menu-bar>
+ <md-menu>
+   <button ng-click="$mdOpenMenu()">
+     Sample Menu
+   </button>
+   <md-menu-content>
+     <md-menu-item type="checkbox" ng-model="settings.allowChanges">Allow changes</md-menu-item>
+     <md-menu-divider></md-menu-divider>
+     <md-menu-item type="radio" ng-model="settings.mode" ng-value="1">Mode 1</md-menu-item>
+     <md-menu-item type="radio" ng-model="settings.mode" ng-value="1">Mode 2</md-menu-item>
+     <md-menu-item type="radio" ng-model="settings.mode" ng-value="1">Mode 3</md-menu-item>
+   </md-menu-content>
+ </md-menu>
+</md-menu-bar> -->
+
+<!-- end of menu bar -->
+     <md-fab-toolbar md-open="false" count="0"
+                  md-direction="left">
+        <md-fab-trigger class="align-with-text">
+          <md-button aria-label="menu" class="md-fab myColor">
+            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+            <!-- <i class="material-icons md-66">dashboard</i> -->
+          </md-button>
+        </md-fab-trigger>
+        <md-toolbar>
+          <md-fab-actions class="md-toolbar-tools">
+            <md-button aria-label="comment">
+              Login
+            </md-button>
+            <md-button aria-label="label" >
+              Contact
+            </md-button>
+           
+          </md-fab-actions>
+        </md-toolbar>
+  </md-fab-toolbar>
+  <div class="col-md-8"> 
+  <form name="RegForm" >
+  <md-input-container class="md-block" flex-gt-sm >
+        <label>Email</label>
+        <input name="email" ng-model="vm.email" type="email" required>
+        <div ng-messages="RegForm.email.$error" ng-hide="RegForm.email.$valid || RegForm.email.$pristine">
+          <div ng-hide="RegForm.email.$dirty" ng-message="required">This is required!</div>
+          <div ng-hide="RegForm.email.$valid" ng-message="invalid">This is not valid email </div>
+        </div>
+      </md-input-container>
+      <md-input-container class="md-block" flex-gt-sm>
+        <label>Password</label>
+        <input name="pwd"  ng-minlength="8" ng-model="vm.pwd" type="password" required><!--password-chk -->
+        <div ng-messages="RegForm.pwd.$error" ng-hide="RegForm.pwd.$valid || RegForm.pwd.$pristine">
+          <div ng-hide="RegForm.pwd.$dirty" ng-message="required">This is required!</div>
+         <div ng-hide="RegForm.pwd.$valid"ng-message="invalid">This is not valid password </div>
+        </div>
+      </md-input-container>
+      <md-input-container class="md-block" flex-gt-sm>
+        <label>Confirm Password</label>
+        <input name="cpwd"  ng-minlength="8" ng-model="vm.cpwd" type="password" required><!--password-chk -->
+        <div ng-messages="RegForm.cpwd.$error" ng-hide="RegForm.cpwd.$valid || RegForm.cpwd.$pristine">
+          <div ng-hide="RegForm.cpwd.$dirty" ng-message="required">This is required!</div>
+         <div ng-hide="RegForm.cpwd.$valid"ng-message="invalid">This is not valid password </div>
+        </div>
+      </md-input-container>
+     <md-content>
+    <h5>Date of Birth</h5>
+    <md-datepicker ng-model="birthday" md-placeholder="Enter date"></md-datepicker>
+     </md-content>
+      <md-switch class="md-primary" md-no-ink aria-label="I'm not robot" ng-model="data.cb5">
+        I'm not a Robot
+      </md-switch><br/>
+        <md-button ng-click="vm.submitForm(RegForm)" class="md-raised myColor" >Register</md-button>
+        </form> 
+        </div><!-- end of col-md-8 -->
+</div><!-- end of container -->
+
+<footer></footer>
