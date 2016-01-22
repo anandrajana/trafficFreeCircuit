@@ -7,6 +7,6 @@ angular.module('freecircuitApp')
         url: '/register',
         templateUrl: 'app/register/register.html',
         controller: 'RegController',
-        controllerAs: 'reg'
+        controllerAs: 'vm'
       });
   });

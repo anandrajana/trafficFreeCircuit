@@ -4,30 +4,23 @@
 
 class RegController {
 
-  // constructor($http, $scope, socket) {
-  //   this.$http = $http;
-  //   this.awesomeThings = [];
-
-  //   $http.get('/api/things').then(response => {
-  //     this.awesomeThings = response.data;
-  //     socket.syncUpdates('thing', this.awesomeThings);
-  //   });
-
-  //   $scope.$on('$destroy', function() {
-  //     socket.unsyncUpdates('thing');
-  //   });
-  // }
-
-  // addThing() {
-  //   if (this.newThing) {
-  //     this.$http.post('/api/things', { name: this.newThing });
-  //     this.newThing = '';
-  //   }
-  // }
-
-  // deleteThing(thing) {
-  //   this.$http.delete('/api/things/' + thing._id);
-  // }
+  submitForm(form){
+    form.$submitted = true;
+    if (form.$invalid) {
+          toastr.error('validation errors, cancelling the submit');
+          // toastr.success('validation success');
+          // toastr.info('info passing');
+          // toastr.warning('warning message');
+          return;
+                
+        } 
+    var emailid = form.email.$viewValue;
+    var pwd = form.password.$viewValue;
+    var cpwd = form.cpwd.$viewValue;
+    //console.log(email);
+    //alert("Submitted");
+    //this.$http.post('/api/users', { email: emailid,password:pwd });
+  }
 }
 
 angular.module('freecircuitApp')

@@ -48,13 +48,11 @@
   <form name="RegForm" >
   <md-input-container class="md-block" flex-gt-sm >
         <label>Email</label>
-        <input name="email" ng-model="vm.email" type="email" required>
+        <input name="email" ng-model="vm.email" type="email" ng-pattern="/^[a-z]+[a-z0-9._]+@sapient\.com$/" required>
         <span class="red" ng-show="RegForm.email.$error.required && RegForm.email.$dirty">required</span>
-        <span class="red" ng-show="!RegForm.email.$error.required && RegForm.email.$error.email && RegForm.email.$dirty">invalid email</span>
-        <!-- <div ng-messages="RegForm.email.$error" ng-hide="RegForm.email.$valid || RegForm.email.$pristine">
-          <div ng-hide="RegForm.email.$dirty" ng-message="required">This is required!</div>
-          <div ng-hide="RegForm.email.$valid" ng-message="invalid">This is not valid email </div>
-        </div> -->
+        <span class="red" ng-show="!RegForm.email.$error.required && RegForm.email.$error.email && RegForm.email.$dirty">Invalid email.</span>
+        <span class="red" ng-show="!RegForm.email.$error.required && RegForm.email.$error.pattern">Use name@sapient.com</span>
+       
       </md-input-container>
       <md-input-container class="md-block" flex-gt-sm>
         <label>Password</label>
@@ -62,21 +60,15 @@
         <span class="red" ng-show="RegForm.password.$error.required && RegForm.password.$dirty">required</span>
    <span class="red" ng-show="!RegForm.password.$error.required && (RegForm.password.$error.minlength || RegForm.password.$error.maxlength) && RegForm.password.$dirty">Passwords must be between 8 and 20 characters.</span>
    <span class="red" ng-show="!RegForm.password.$error.required && !RegForm.password.$error.minlength && !RegForm.password.$error.maxlength && RegForm.password.$error.pattern && RegForm.password.$dirty">Must contain one lower &amp; uppercase letter, and one non-alpha character (a number or a symbol.)</span>
-        <!-- <div ng-messages="RegForm.pwd.$error" ng-hide="RegForm.pwd.$valid || RegForm.pwd.$pristine">
-          <div ng-hide="RegForm.pwd.$dirty" ng-message="required">This is required!</div>
-         <div ng-hide="RegForm.pwd.$valid"ng-message="invalid">This is not valid password </div>
-        </div> -->
+        
       </md-input-container>
       <md-input-container class="md-block" flex-gt-sm>
         <label>Confirm Password</label>
         <input name="cpwd"  ng-minlength="8" ng-maxlength="20" ng-model="vm.cpwd" type="password" valid-password-c required><!--password-chk -->
          <span class="red" ng-show="RegForm.cpwd.$error.required && RegForm.cpwd.$dirty">Please confirm your password.</span>
-        <span class="red" ng-message="invalid" ng-show="RegForm.cpwd.$error.$invalid && RegForm.cpwd.$error.noMatch && RegForm.cpwd.$dirty">Passwords do not match.</span>
-        <span class="red" ng-show="RegForm.cpwd.$dirty && !RegForm.password.$valid"> Please enter password first </span>
-       <!--  <div ng-messages="RegForm.cpwd.$error" ng-hide="RegForm.cpwd.$valid || RegForm.cpwd.$pristine">
-          <div ng-hide="RegForm.cpwd.$dirty" ng-message="required">This is required!</div>
-         <div ng-hide="RegForm.cpwd.$valid"ng-message="invalid">This is not valid password </div>
-        </div> -->
+        <span class="red"  ng-show="!RegForm.cpwd.$error.required && RegForm.cpwd.$error.noMatch && RegForm.cpwd.$dirty">Passwords do not match.</span>
+        
+       
       </md-input-container>
      <md-content>
     <h5>Date of Birth</h5>

@@ -7,27 +7,24 @@ class LoginController {
   //vm.name = "sathya";
   constructor($http, $scope, socket) {
     this.$http = $http;
-    // this.awesomeThings = [];
-
-    // $http.get('/api/users').then(response => {
-    //   this.users = response.data;
-    //   socket.syncUpdates('thing', this.awesomeThings);
-    // });
-
-    // $scope.$on('$destroy', function() {
-    //   socket.unsyncUpdates('thing');
-    // });
+    
   }
 
-  submitForm(user){
-    if(!user.$valid){
-      return;
-    }
-  	var emailid = user.email.$viewValue;
-  	var pwd = user.pwd.$viewValue;
-  	//console.log(email);
-  	//alert("Submitted");
-  	this.$http.post('/api/users', { email: emailid,password:pwd });
+  submitForm(form){
+    form.$submitted = true;
+    if (form.$invalid) {
+          toastr.error('validation errors, cancelling the submit');
+          //form.email.$error.required = true;
+          // toastr.success('validation success');
+          // toastr.info('info passing');
+          // toastr.warning('warning message');
+          return;
+                
+        } 
+  	var emailid = form.email.$viewValue;
+  	var pwd = form.pwd.$viewValue;
+  	
+  	//this.$http.post('/api/users', { email: emailid,password:pwd });
   }
 }
 
