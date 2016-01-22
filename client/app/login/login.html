@@ -29,9 +29,10 @@
   <form name="userForm" >
   <md-input-container class="md-block" flex-gt-sm >
         <label>Email</label>
-        <input name="email" ng-model="vm.email" type="email" required>
+        <input name="email" ng-model="vm.email" type="email" ng-pattern="/^[a-z]+[a-z0-9._]+@sapient\.com$/" required>
         <span class="red" ng-show="userForm.email.$error.required && userForm.email.$dirty">required</span>
-        <span class="red" ng-show="!userForm.email.$error.required && userForm.email.$error.email && userForm.email.$dirty">invalid email</span>
+        <span class="red" ng-show="!userForm.email.$error.required && userForm.email.$error.email && userForm.email.$dirty">invalid email.</span>
+        <span class="red" ng-show="!userForm.email.$error.required && userForm.email.$error.pattern">Try name@sapient.com</span>
         <!-- <div ng-messages="userForm.email.$error" ng-hide="userForm.email.$valid || userForm.email.$pristine">
           <div ng-hide="userForm.email.$dirty" ng-message="required">This is required!</div>
           <div ng-hide="userForm.email.$valid" ng-message="invalid">This is not valid email </div>
