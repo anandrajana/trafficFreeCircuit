@@ -20,6 +20,9 @@ class LoginController {
   }
 
   submitForm(user){
+    if(!user.$valid){
+      return;
+    }
   	var emailid = user.email.$viewValue;
   	var pwd = user.pwd.$viewValue;
   	//console.log(email);
