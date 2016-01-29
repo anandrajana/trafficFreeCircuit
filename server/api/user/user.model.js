@@ -1,10 +1,11 @@
 'use strict';
 
 var mongoose = require('bluebird').promisifyAll(require('mongoose'));
-
+// /var bcrypt = require('bcryptjs');
 var UserSchema = new mongoose.Schema({
-  name: String,
-  info: String,
+  email:  { type: String, required: true, index: { unique: true } },
+  password: { type: String, required: true },
+  dob:String,
   active: Boolean
 });
 

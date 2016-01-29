@@ -10,7 +10,7 @@ angular.module('freecircuitApp', [
   'ui.bootstrap',
   'ngMaterial'
 ])
-  .config(function($urlRouterProvider, $locationProvider, $mdThemingProvider) {
+  .config(function($urlRouterProvider, $locationProvider, $mdThemingProvider,$stateProvider) {
     $urlRouterProvider
       .otherwise('/');
 
