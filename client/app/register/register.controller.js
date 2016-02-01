@@ -52,9 +52,9 @@
         .module('freecircuitApp')
         .controller('RegController', RegController);
 
-    RegController.$inject = ['$http','$scope','socket','$state'];
+    RegController.$inject = ['$http','$scope','socket','$state','dataservice'];
     /* @ngInject */
-    function RegController($http, $scope, socket,$state) {
+    function RegController($http, $scope, socket,$state,dataservice) {
         var vm = this;
         vm.title = 'Add New Task';
 
@@ -77,12 +77,19 @@
         var emailid = form.email.$viewValue;
         var pwd = form.password.$viewValue;
         var cpwd = form.cpwd.$viewValue;
-        var dateofbirth = form.dateB.$viewValue;
+        var dateofbirth = form.dateBirth.$viewValue;
         //console.log(email);
         //alert("Submitted");
-        $http.post('/api/users', { email: emailid,password:pwd,dob:dateofbirth }).then(function(string) {
-        $state.go("login");
+        var app = { email: emailid,password:pwd,dob:dateofbirth }
+        dataservice.submit(app).then(function(success){
+          $state.go("login");
+          toastr.success('Please login with your credentials');
         });
+        
+        //$http.post('/api/users', { email: emailid,password:pwd,dob:dateofbirth }).then(function(string) {
+        //$state.go("login");
+        //toastr.success('Please login with your credentials');
+        //});
       }
         
     }
